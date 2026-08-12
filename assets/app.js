@@ -41,8 +41,9 @@ $$('.chip').forEach(c=>c.addEventListener('click',()=>{
 /* cursor plate */
 const cp=$('.cp'),cpImg=$('.cp img');
 let tx=0,ty=0,cx=0,cy=0,raf=null;
-const loop=()=>{cx+=(tx-cx)*.14;cy+=(ty-cy)*.14;
-  cp.style.transform=`translate3d(${cx}px,${cy}px,0) translate(-50%,-50%) scale(${cp.classList.contains('on')?1:.94})`;
+const loop=()=>{cx+=(tx-cx)*.04;cy+=(ty-cy)*.04;
+  const px=(cx/innerWidth-.5)*-30,py=(cy/innerHeight-.5)*-20;
+  cpImg.style.transform=`translate3d(${px}px,${py}px,0) scale(1.08)`;
   raf=requestAnimationFrame(loop)};
 if(matchMedia('(hover:hover) and (min-width:861px)').matches){
   addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY},{passive:true});
